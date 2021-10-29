@@ -60,7 +60,9 @@ const Contact = props => {
           <Caritems carData={props.data} person={firstName+ " " +lastName}/>
         </Card>
       )}
-      <Link to="/people">Show More</Link>
+      {/* <Link {{ pathname: '/route', state: { foo: 'bar'} }}>Show More</Link> */}
+      <Link to={{ pathname: `/people/${id}`, state: { id: id} }}>Show More</Link>
+{/*  */}
     </div>
   )
 }

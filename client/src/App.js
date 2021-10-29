@@ -35,7 +35,7 @@ const App = () => (
             <Cars />
           </div>
         </Route>
-        <Route path="/people">
+        <Route path="/people/:id">
             <About />
         </Route>
       </Switch>

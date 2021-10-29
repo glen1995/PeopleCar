@@ -49,7 +49,9 @@ const UpdateCar = props => {
     }
   }
 
-
+  function handleChange(value) {
+    updateStateVariable('personId', value)
+  }
 
   const onFinish = values => {
     const { year, make, model, price, personId } = values
@@ -119,25 +121,25 @@ const UpdateCar = props => {
       >
         <Input onChange={e => updateStateVariable('price', e.target.value)} />
       </Form.Item>
-      {/* <Form.Item
+      <Form.Item
         name='personId'
         rules={[{ required: true, message: 'Please input personId!' }]}
       >
         <Input onChange={e => updateStateVariable('personId', e.target.value)} />
-      </Form.Item> */}
-      <Form.Item
+      </Form.Item>
+      {/* <Form.Item
           name='personId'
           rules={[{ required: true, message: 'Please select the person ' }]}
         >
           { data && 
-            <Select style={{ width: 120 }} onChange={e => updateStateVariable('personId', e.target.value)}>
-            {data && data.peoples.map((people, index) => {
+            <Select style={{ width: 120 }} onChange={e => handleChange(e.target.value)}>
+            {data && data.peoples.map((people, index) => (
                 <Select.Option key={people.id} value={(people.id).toString()}>{people.firstName+ " " + people.lastName}</Select.Option>
 
-            })}
+            ))}
             </Select>
           }
-        </Form.Item>
+        </Form.Item> */}
 
       <Form.Item shouldUpdate={true}>
         {() => (

@@ -4,6 +4,7 @@ import { EditOutlined } from '@ant-design/icons'
 import RemoveContact from '../components/buttons/RemoveContact'
 import UpdateContact from '../components/forms/UpdateContact'
 import Caritems from './Caritems'
+import { Link } from 'react-router-dom';
 
 const getStyles = () => ({
   card: {
@@ -59,6 +60,7 @@ const Contact = props => {
           <Caritems carData={props.data} person={firstName+ " " +lastName}/>
         </Card>
       )}
+      <Link to="/people">Show More</Link>
     </div>
   )
 }

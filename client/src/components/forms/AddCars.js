@@ -103,7 +103,7 @@ const AddCars = () => {
         >
           <Select value={data && selectValue} style={{ width: 120 }} onChange={handleChange}>
             {data && data.peoples.map((people, index) => (
-              <Select.Option key={index+1} value={(index+1).toString()}>{people.firstName+ " " + people.lastName}</Select.Option>
+              <Select.Option key={people.id} value={(people.id).toString()}>{people.firstName+ " " + people.lastName}</Select.Option>
             ))}
           </Select>
         </Form.Item>

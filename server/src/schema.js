@@ -155,7 +155,6 @@ const resolvers = {
     },
     addCars: (root, args) => {
       const p = find(people, { id: args.personId })
-      
       if (!p) {
         throw new Error(`There is no person with this ID ${args.personId}`)
       }

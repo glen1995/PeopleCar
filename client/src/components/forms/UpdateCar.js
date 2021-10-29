@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, Select } from 'antd'
 import { useMutation, useQuery } from '@apollo/client'
 import { UPDATE_CAR, GET_CONTACTS } from '../../queries'
 
@@ -119,22 +119,25 @@ const UpdateCar = props => {
       >
         <Input onChange={e => updateStateVariable('price', e.target.value)} />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         name='personId'
         rules={[{ required: true, message: 'Please input personId!' }]}
       >
         <Input onChange={e => updateStateVariable('personId', e.target.value)} />
-      </Form.Item>
-      {/* <Form.Item
+      </Form.Item> */}
+      <Form.Item
           name='personId'
           rules={[{ required: true, message: 'Please select the person ' }]}
         >
-          <Select style={{ width: 120 }} onChange={e => console.log(e.target.value)}>
+          { data && 
+            <Select style={{ width: 120 }} onChange={e => updateStateVariable('personId', e.target.value)}>
             {data && data.peoples.map((people, index) => {
-                console.log(people,index)
+                <Select.Option key={people.id} value={(people.id).toString()}>{people.firstName+ " " + people.lastName}</Select.Option>
+
             })}
-          </Select>
-        </Form.Item> */}
+            </Select>
+          }
+        </Form.Item>
 
       <Form.Item shouldUpdate={true}>
         {() => (

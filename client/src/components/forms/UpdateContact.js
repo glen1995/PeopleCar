@@ -8,7 +8,7 @@ const UpdateContact = props => {
   const [id] = useState(props.id)
   const [firstName, setFirstName] = useState(props.firstName)
   const [lastName, setLastName] = useState(props.lastName)
-  const [updateContact] = useMutation(UPDATE_CONTACT)
+  const [updatePeople] = useMutation(UPDATE_CONTACT)
 
   const [form] = Form.useForm()
   const [, forceUpdate] = useState()
@@ -33,8 +33,8 @@ const UpdateContact = props => {
 
   const onFinish = values => {
     const { firstName, lastName } = values
-
-    updateContact({
+  
+    updatePeople({
       variables: {
         id,
         firstName,
@@ -42,7 +42,7 @@ const UpdateContact = props => {
       },
       optimisticResponse: {
         __typename: 'Mutation',
-        updateContact: {
+        updatePeople: {
           __typename: 'People',
           id,
           firstName,

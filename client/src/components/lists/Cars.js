@@ -8,9 +8,6 @@ const getStyles = () => ({
   list: {
     display: 'flex',
     justifyContent: 'center'
-  },
-  header: {
-    fontSize: "2.5rem"
   }
 })
 
@@ -25,7 +22,6 @@ const Cars = () => {
 
   return (
     <List grid={{ gutter: 20, column: 1 }} style={styles.list}>
-      <h2 style={styles.header}>Cars</h2>
       {data.cars.map((data) => (
         <List.Item key={data.id}>
           <Car key={data.id} data={data}/>

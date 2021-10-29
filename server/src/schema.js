@@ -171,15 +171,15 @@ const resolvers = {
       return newCars
     },
     updatePeople: (root, args) => {
-      const people = find(people, { id: args.id })
-      if (!people) {
+      const updatedPeople = find(people, { id: args.id })
+      if (!updatedPeople) {
         throw new Error(`Couldn't find contact with id ${args.id}`)
       }
 
-      people.firstName = args.firstName
-      people.lastName = args.lastName
+      updatedPeople.firstName = args.firstName
+      updatedPeople.lastName = args.lastName
 
-      return people
+      return updatedPeople
     },
     updateCar: (root, args) => {
       const car = find(cars, { id: args.id })

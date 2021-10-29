@@ -4,6 +4,7 @@ import './App.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 import AddContact from './components/forms/AddContact'
+import AddCars from './components/forms/AddCars'
 import Title from './components/layout/Title'
 import Contacts from './components/lists/Contacts'
 import Cars from './components/lists/Cars'
@@ -19,6 +20,8 @@ const App = () => (
       <Title />
       <AddContact />
       <Contacts />
+      <h2 style={{"fontSize": "2rem"}}>Cars</h2>
+      <AddCars />
       <Cars />
     </div>
   </ApolloProvider>

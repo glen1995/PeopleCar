@@ -20,19 +20,6 @@ const RemoveCar = ({ id, make, model, price, year, personId, flag }) => {
         }
     })
 
-    // if(flag === "Not working") {
-    //     console.log(id)
-    //     console.log(make)
-    //     console.log(model)
-    //     console.log(price)
-    //     console.log(year)
-
-    // } else {
-    //     console.log(id)
-    //     console.log("doubke hii")
-    // }
-    
-
 
     const handleButtonClick = () => {
         let result = window.confirm('Are you sure you want to delete this contact?')

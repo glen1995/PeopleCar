@@ -28,6 +28,7 @@ const Contact = props => {
   const styles = getStyles()
 
   const updateStateVariable = (variable, value) => {
+
     switch (variable) {
       case 'firstName':
         setFirstName(value)

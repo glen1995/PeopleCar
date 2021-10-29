@@ -25,7 +25,7 @@ const Caritems = ({ carData, person }) => {
                             ]}
                         >
                             <div>
-                                <p>Owner: {person}</p>
+                                {/* <p>Owner: {person}</p> */}
                                 <p>Make: {car.make}</p>
                                 <p>Model: {car.model}</p>
                                 <p>price: {car.price}</p>

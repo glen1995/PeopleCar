@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Card } from 'antd'
-import { useQuery } from '@apollo/client'
 import { EditOutlined } from '@ant-design/icons'
 import RemoveContact from '../components/buttons/RemoveContact'
 import UpdateContact from '../components/forms/UpdateContact'
-import { GET_PEOPLE_CARS } from '../queries'
 import Caritems from './Caritems'
 
 const getStyles = () => ({
@@ -18,12 +16,6 @@ const Contact = props => {
   const [firstName, setFirstName] = useState(props.firstName)
   const [lastName, setLastName] = useState(props.lastName)
   const [editMode, setEditMode] = useState(false)
-
-  const { loading, error, data } = useQuery(GET_PEOPLE_CARS, {variables: {personId: props.id}})
-  if (loading) return 'Loading...'
-  if (error) {
-    return `Error! ${error.message}`
-  }
 
   const styles = getStyles()
 
@@ -64,7 +56,7 @@ const Contact = props => {
           ]}
         >
           {firstName} {lastName}
-          <Caritems carData={data.findpeoplecar} person={firstName+ " " +lastName}/>
+          <Caritems carData={props.data} person={firstName+ " " +lastName}/>
         </Card>
       )}
     </div>

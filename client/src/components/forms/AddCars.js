@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useMutation, useQuery, ApolloError } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 
 import { Form, Input, Button, Select } from 'antd'
 
@@ -9,24 +9,22 @@ import { ADD_CAR, GET_CARS, GET_CONTACTS } from '../../queries'
 const AddCars = () => {
   const [id] = useState(uuidv4())
   const [form] = Form.useForm()
-  const error = ApolloError
   const [, forceUpdate] = useState()
   const [selectValue, setSelectValue] = useState("Intial")
-  const { loading, errors, data } = useQuery(GET_CONTACTS)
+  const { loading, error, data } = useQuery(GET_CONTACTS)
   const [addCars] = useMutation(ADD_CAR)
   useEffect(() => {
     forceUpdate({})
   }, [])
 
   if (loading) return 'Loading...'
-  if (errors) {
+  if (error) {
     return `Error! ${error.message}`
   }
 
   const onFinish = values => {
     const { year, make, price, model, personId } = values
 
-    console.log(typeof (personId))
     addCars({
       variables: {
         id,
@@ -119,7 +117,7 @@ const AddCars = () => {
                 form.getFieldsError().filter(({ errors }) => errors.length).length
               }
             >
-              Add Contact
+              Add Car
             </Button>
           )}
         </Form.Item>
